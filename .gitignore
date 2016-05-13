@@ -1,0 +1,17 @@
+#ignore IntelliJ project files
+*.iml
+*.iws
+*.ipr
+.idea/*
+.idea
+
+#ignore build outputs
+out/
+target/
+.gradle/*
+gradle/*
+build/*
+
+#ignore some file in functionaltest
+.DS_Store
+**/.DS_Store
