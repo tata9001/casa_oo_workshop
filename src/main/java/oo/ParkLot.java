@@ -13,7 +13,7 @@ public class ParkLot {
     }
 
     public Optional<String> park(Car car) {
-        if (this.cars.size() >= num){
+        if (this.cars.size() >= num) {
             return Optional.empty();
         }
         this.cars.put(car.getId(), car);
@@ -22,5 +22,9 @@ public class ParkLot {
 
     public Optional<Car> unPark(String ticket) {
         return Optional.ofNullable(cars.get(ticket));
+    }
+
+    public int getRestSpace() {
+        return num - this.cars.size();
     }
 }
