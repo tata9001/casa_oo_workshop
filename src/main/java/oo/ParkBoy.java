@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class ParkBoy {
+
     private final List<ParkLot> parkLots;
 
     public ParkBoy(ParkLot... parkLots) {
@@ -25,5 +26,10 @@ public class ParkBoy {
                 filter(car -> car.isPresent()).
                 findFirst().
                 orElse(Optional.empty());
+    }
+
+
+    public List<ParkLot> getParkLots() {
+        return parkLots;
     }
 }

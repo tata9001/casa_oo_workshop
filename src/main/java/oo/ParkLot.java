@@ -27,4 +27,8 @@ public class ParkLot {
     public int getRestSpace() {
         return num - this.cars.size();
     }
+
+    public double getRestSpaceRate() {
+        return (((double) getRestSpace()) / num);
+    }
 }
