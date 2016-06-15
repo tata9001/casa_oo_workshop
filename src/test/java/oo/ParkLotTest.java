@@ -69,7 +69,7 @@ public class ParkLotTest {
     public void shouldGenerateRightReport() throws Exception {
         p.park(new Car("1"));
 
-        String report = p.report(0);
+        String report = p.report(new Reporter(0, new StringBuilder()));
         assertThat(report, is("ParkLot(1/2)\n"));
     }
 }

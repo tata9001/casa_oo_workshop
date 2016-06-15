@@ -78,9 +78,7 @@ public class StupidParkBoyTest {
     @Test
     public void should_generate_right_report() throws Exception {
 
-        String report = pb.report(0);
-
-        System.out.println(report);
+        String report = pb.report(new Reporter(0, new StringBuilder()));
 
         assertThat(report, is(
                 "ParkBoy:\n" +

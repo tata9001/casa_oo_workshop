@@ -71,7 +71,7 @@ public class ParkManagerTest {
     @Test
     public void should_generate_right_report() throws Exception {
 
-        String report = parkable.report(0);
+        String report = parkable.report(new Reporter(0, new StringBuilder()));
 
         assertThat(report, is(
                 "ParkManager:\n" +

@@ -1,5 +1,5 @@
 package oo;
 
 public interface Reportable {
-    String report(int level);
+    String report(IReporter reporter);
 }

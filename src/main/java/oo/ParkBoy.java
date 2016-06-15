@@ -1,6 +1,5 @@
 package oo;
 
-import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import oo.finder.ParkLotFinder;
 
@@ -30,16 +29,8 @@ public class ParkBoy implements Parkable {
     }
 
     @Override
-    public String report(int level) {
-        StringBuilder result = new StringBuilder();
-        result.append(Strings.repeat("-", level))
-                .append("ParkBoy:\n");
-
-        this.getParkLots()
-                .stream()
-                .forEach(parkLot -> result.append(parkLot.report(level + 1)));
-
-        return result.toString();
+    public String report(IReporter reporter) {
+        return reporter.report(this);
     }
 
     public List<ParkLot> getParkLots() {

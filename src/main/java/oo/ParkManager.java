@@ -1,7 +1,6 @@
 package oo;
 
 
-import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 
 import java.util.List;
@@ -33,16 +32,8 @@ public class ParkManager implements Parkable {
     }
 
     @Override
-    public String report(int level) {
-        StringBuilder result = new StringBuilder();
-        result.append(Strings.repeat("-", level))
-                .append("ParkManager:\n");
-
-        this.getParkables()
-                .stream()
-                .forEach(parkable -> result.append(parkable.report(level + 1)));
-
-        return result.toString();
+    public String report(IReporter reporter) {
+        return reporter.report(this);
     }
 
     public List<Parkable> getParkables() {
