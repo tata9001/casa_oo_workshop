@@ -13,3 +13,20 @@ OO workshop 题目：
 5.重构到策略
 
 6.实现一个停车场经理，可以管理多个停车小弟，提供停取车功能；
+
+7.实现一个超级停车场经理，可以管理多个停车经理，提供停取车功能；
+
+8.重构出Parkable接口
+
+9.实现report功能:
+
+```
+                    ParkManager:
+                    -ParkBoy:
+                    --ParkLot(0/2)
+                    --ParkLot(0/2)
+                    -ParkBoy:
+                    --ParkLot(0/2)
+                    --ParkLot(0/2);
+```
+10.重构到visitor
