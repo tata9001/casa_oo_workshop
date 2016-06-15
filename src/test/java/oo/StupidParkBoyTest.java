@@ -1,5 +1,6 @@
 package oo;
 
+import oo.finder.StupidParkLotFinder;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,8 +9,8 @@ import java.util.Optional;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-public class ParkBoyTest {
-    private ParkBoy pb;
+public class StupidParkBoyTest {
+    private Parkable pb;
     private ParkLot parkLot1;
     private ParkLot parkLot2;
 
@@ -18,7 +19,7 @@ public class ParkBoyTest {
     public void setUp() throws Exception {
         parkLot1 = new ParkLot(2);
         parkLot2 = new ParkLot(2);
-        pb = new ParkBoy(parkLot1, parkLot2);
+        pb = new ParkBoy(new StupidParkLotFinder(), parkLot1, parkLot2);
     }
 
     @Test
@@ -72,5 +73,18 @@ public class ParkBoyTest {
         Optional<Car> carOptional = pb.unPark("1");
 
         assertThat(carOptional.isPresent(), is(false));
+    }
+
+    @Test
+    public void should_generate_right_report() throws Exception {
+
+        String report = pb.report(0);
+
+        System.out.println(report);
+
+        assertThat(report, is(
+                "ParkBoy:\n" +
+                "-ParkLot(0/2)\n" +
+                "-ParkLot(0/2)\n"));
     }
 }

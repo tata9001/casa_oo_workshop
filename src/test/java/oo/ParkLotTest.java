@@ -65,4 +65,11 @@ public class ParkLotTest {
         assertThat(ticket2.isPresent(), is(true));
     }
 
+    @Test
+    public void shouldGenerateRightReport() throws Exception {
+        p.park(new Car("1"));
+
+        String report = p.report(0);
+        assertThat(report, is("ParkLot(1/2)\n"));
+    }
 }

@@ -1,5 +1,6 @@
 package oo;
 
+import oo.finder.SmartParkLotFinder;
 import org.junit.Test;
 
 import java.util.Optional;
@@ -17,8 +18,8 @@ public class SmartParkBoyTest {
         parkLot2.park(new Car("2"));
 
         Car car = new Car("3");
-        SmartParkBoy smartParkBoy = new SmartParkBoy(parkLot1, parkLot2);
-        Optional<String> ticket = smartParkBoy.park(car);
+        Parkable smartParkable = new ParkBoy(new SmartParkLotFinder(), parkLot1, parkLot2);
+        Optional<String> ticket = smartParkable.park(car);
 
         assertThat(ticket.isPresent(), is(true));
         assertThat(parkLot2.unPark(ticket.get()).get(), is(car));
